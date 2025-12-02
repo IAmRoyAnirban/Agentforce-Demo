@@ -1,1 +1,456 @@
-Hello!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Demo - Lead Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 50px 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-weight: bold;
+            font-size: 28px;
+            color: #667eea;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .form-wrapper {
+            padding: 50px 40px;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .section-title {
+            grid-column: 1 / -1;
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .section-title:first-of-type {
+            margin-top: 0;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .required {
+            color: #e74c3c;
+            margin-left: 4px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        select,
+        textarea {
+            padding: 12px 14px;
+            border: 1.5px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #667eea;
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .button-group {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 14px 40px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button[type="submit"] {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-width: 200px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        button[type="reset"] {
+            background: #ecf0f1;
+            color: #333;
+            min-width: 150px;
+        }
+
+        button[type="reset"]:hover {
+            background: #d5dbdb;
+        }
+
+        .footer-text {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+            margin-top: 20px;
+        }
+
+        .footer-text a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            form {
+                grid-template-columns: 1fr;
+            }
+
+            .form-wrapper {
+                padding: 30px 20px;
+            }
+
+            .header {
+                padding: 40px 20px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">SF</div>
+            <h1>Request a Demo</h1>
+            <p>Get started with our comprehensive solutions for your business</p>
+        </div>
+
+        <div class="form-wrapper">
+            <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DKa00000TGEUh" method="POST">
+                
+                <!-- Personal Information Section -->
+                <div class="section-title">Personal Information</div>
+                
+                <div class="form-group">
+                    <label for="first_name">First Name <span class="required">*</span></label>
+                    <input type="text" id="first_name" name="first_name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="last_name">Last Name <span class="required">*</span></label>
+                    <input type="text" id="last_name" name="last_name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="salutation">Salutation</label>
+                    <select id="salutation" name="salutation">
+                        <option value="">--None--</option>
+                        <option value="Mr.">Mr.</option>
+                        <option value="Ms.">Ms.</option>
+                        <option value="Mrs.">Mrs.</option>
+                        <option value="Dr.">Dr.</option>
+                        <option value="Prof.">Prof.</option>
+                        <option value="Mx.">Mx.</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title">
+                </div>
+
+                <!-- Contact Information Section -->
+                <div class="section-title">Contact Information</div>
+
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile">Mobile</label>
+                    <input type="tel" id="mobile" name="mobile">
+                </div>
+
+                <div class="form-group">
+                    <label for="fax">Fax</label>
+                    <input type="tel" id="fax" name="fax">
+                </div>
+
+                <!-- Company Information Section -->
+                <div class="section-title">Company Information</div>
+
+                <div class="form-group">
+                    <label for="company">Company <span class="required">*</span></label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="website">Website</label>
+                    <input type="text" id="website" name="website">
+                </div>
+
+                <div class="form-group">
+                    <label for="industry">Industry</label>
+                    <select id="industry" name="industry">
+                        <option value="">--None--</option>
+                        <option value="Agriculture">Agriculture</option>
+                        <option value="Apparel">Apparel</option>
+                        <option value="Banking">Banking</option>
+                        <option value="Biotechnology">Biotechnology</option>
+                        <option value="Chemicals">Chemicals</option>
+                        <option value="Communications">Communications</option>
+                        <option value="Construction">Construction</option>
+                        <option value="Consulting">Consulting</option>
+                        <option value="Education">Education</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Energy">Energy</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Environmental">Environmental</option>
+                        <option value="Food & Beverage">Food & Beverage</option>
+                        <option value="Government">Government</option>
+                        <option value="Healthcare & Life Sciences">Healthcare & Life Sciences</option>
+                        <option value="Hospitality">Hospitality</option>
+                        <option value="Insurance">Insurance</option>
+                        <option value="Machinery">Machinery</option>
+                        <option value="Manufacturing">Manufacturing</option>
+                        <option value="Media">Media</option>
+                        <option value="Not For Profit">Not For Profit</option>
+                        <option value="Other">Other</option>
+                        <option value="Recreation">Recreation</option>
+                        <option value="Retail">Retail</option>
+                        <option value="Shipping">Shipping</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Telecommunications">Telecommunications</option>
+                        <option value="Transportation">Transportation</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="Financial Services">Financial Services</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="annual_revenue">Annual Revenue</label>
+                    <input type="text" id="annual_revenue" name="annual_revenue">
+                </div>
+
+                <div class="form-group">
+                    <label for="employees">Number of Employees</label>
+                    <input type="text" id="employees" name="employees">
+                </div>
+
+                <!-- Address Information Section -->
+                <div class="section-title">Address Information</div>
+
+                <div class="form-group full">
+                    <label for="street">Street</label>
+                    <input type="text" id="street" name="street">
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city">
+                </div>
+
+                <div class="form-group">
+                    <label for="state">State/Province</label>
+                    <input type="text" id="state" name="state">
+                </div>
+
+                <div class="form-group">
+                    <label for="zip">Zip/Postal Code</label>
+                    <input type="text" id="zip" name="zip">
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input type="text" id="country" name="country">
+                </div>
+
+                <!-- Lead Information Section -->
+                <div class="section-title">Lead Information</div>
+
+                <div class="form-group">
+                    <label for="lead_source">Lead Source <span class="required">*</span></label>
+                    <select id="lead_source" name="lead_source" required>
+                        <option value="">--None--</option>
+                        <option value="Website">Website</option>
+                        <option value="Social Media">Social Media</option>
+                        <option value="Marketing Event">Marketing Event</option>
+                        <option value="Referral">Referral</option>
+                        <option value="Cold Call">Cold Call</option>
+                        <option value="Data.com">Data.com</option>
+                        <option value="Partner">Partner</option>
+                        <option value="Community">Community</option>
+                        <option value="Inbound Call">Inbound Call</option>
+                        <option value="Salesforce IoT">Salesforce IoT</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="record_type">Lead Record Type</label>
+                    <select id="record_type" name="record_type">
+                        <option value="">--None--</option>
+                        <option value="Lead">Lead</option>
+                        <option value="Lead - Deal Registration">Lead - Deal Registration</option>
+                        <option value="Lead - Partner Application">Lead - Partner Application</option>
+                    </select>
+                </div>
+
+                <div class="form-group full">
+                    <label for="interested_product">Interested Product</label>
+                    <select id="interested_product" name="interested_product" title="Select a product to view description">
+                        <option value="">--None--</option>
+                        <option value="01tKa000009b21uIAA" title="Complete steam management solution including rotary joints, syphons, and condensate removal systems for dryer section efficiency.">Steam Control & Condensate System</option>
+                        <option value="01tKa000009b228IAA" title="Professional doctor blade holders and oscillation systems for roll cleaning in paper machines. Ensures optimal sheet quality and equipment protection.">Doctor Blade Cleaning System</option>
+                        <option value="01tKa000009b223IAA" title="Precision-engineered rotary unions transfer steam, water, and thermal fluids in rotating equipment. Critical for paper machine dryer sections.">Company Rotary Joint System</option>
+                        <option value="01tKa000009b21yIAA" title="High-efficiency centrifugal cleaner removes contraries and debris from stock preparation systems. Protects downstream equipment from damage.">XCEL NT Forward Cleaner</option>
+                        <option value="01tKa000009b21tIAA" title="High-consistency pulping system for broke and virgin fiber processing. Used in paper and pulp mills for efficient fiber recovery and stock preparation.">Hydrapulper DR Series Pulper</option>
+                        <option value="01tKa000009azCRIAY" title="Air Pilot Valve 3-Way 2-Position 1/8@1/4">VALVE-AIR PILOT 3WAY-2POS 1/8@1/4</option>
+                        <option value="01tKa000009azCMIAY" title="O-Ring Kit EFAS 990/5000">ORING KIT-EFAS 990/5000</option>
+                        <option value="01tKa000009azCIIAY" title="Seal Ring Kit 990/5000 Legacy">KIT-SEAL RING 990/5000 LEGACY</option>
+                        <option value="01tKa000009azCHIAY" title="Air Pilot Valve 3-Way 2-Position 1/8@1/4">VALVE-AIR PILOT 3WAY-2POS 1/8@1/4</option>
+                        <option value="01tKa000009azCCIAY" title="Valve/Actuator Assembly - ZBW Outlet">VALVE/ACTUATOR ASSY-ZBW OUTLET</option>
+                        <option value="01tKa000009azC7IAI" title="Manual Valve Assembly">MANUAL VALVE ASSEMBLY</option>
+                        <option value="01tKa000009azC2IAI" title="Valve/Actuator Assembly - ZBW Inlet">VALVE/ACTUATOR ASSY-ZBW INLET</option>
+                        <option value="01tKa000009azBxIAI" title="DAF Filter Rebuild 20 Barrel Unit - SCOPE: Rebuild Filter Valves/Actuators and components">DAF Filter Rebuild 20 Barrel Unit</option>
+                        <option value="01tKa000009ayuvIAA" title="BLADE, DOCTOR;DST BLADE;SYNTEK-2;30 DEG BVL ANGLE;0.055 IN THK;3 IN WD;248.25 IN LG;END REMOVAL">SynTek™-2 Doctor Blade - DST Blade 30° Bevel</option>
+                        <option value="01tKa000009ayuqIAA" title="BLADE, DOCTOR;REVERSE END REMOVAL;ULTRA C;20 DEG BEVEL;0.055 IN THK;3 IN W WD;242 IN LG;100% CARBON">Ultra C™ Doctor Blade - Reverse End Removal 20° Bevel</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="budget_amount">Budget Amount</label>
+                    <input type="number" id="budget_amount" name="budget_amount" placeholder="0.00" step="0.01">
+                </div>
+
+                <div class="form-group full">
+                    <label for="description">Additional Information</label>
+                    <textarea id="description" name="description" placeholder="Tell us more about your needs..."></textarea>
+                </div>
+
+                <!-- Buttons and Footer -->
+                <div class="button-group">
+                    <button type="submit">Submit Request</button>
+                    <button type="reset">Clear Form</button>
+                </div>
+
+                <p class="footer-text">We respect your privacy. Your information will be handled securely and never shared with third parties.</p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
