@@ -1,85 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thank You</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Demo Request Received</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #4f46e5, #6d28d9);
-            height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
-            color: #ffffff;
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(8px);
-            padding: 40px;
-            border-radius: 16px;
-            max-width: 420px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            padding: 60px 40px;
             text-align: center;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-            animation: fadeIn 0.9s ease-in-out;
+            animation: slideUp 0.6s ease-out;
         }
 
-        h1 {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 25px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #ffffff;
-            color: #4f46e5;
-            padding: 12px 26px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.25s ease;
-        }
-
-        .btn:hover {
-            background: #e0e0ff;
-        }
-
-        @keyframes fadeIn {
+        @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(12px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            animation: scaleIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .checkmark::after {
+            content: '✓';
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #764ba2;
+            font-weight: 600;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 6px;
+            text-align: left;
+        }
+
+        .info-box h3 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-box li {
+            font-size: 14px;
+            color: #666;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .info-box li:last-child {
+            border-bottom: none;
+        }
+
+        .info-box li::before {
+            content: '→ ';
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        a, button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            min-width: 150px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-secondary {
+            background: #ecf0f1;
+            color: #333;
+            border: 2px solid #ddd;
+        }
+
+        .btn-secondary:hover {
+            background: #d5dbdb;
+            border-color: #bdc3c7;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer p {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            border-radius: 50%;
+            background: #f0f0f0;
+            color: #667eea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: none;
+            min-width: auto;
+        }
+
+        .social-links a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .timer {
+            font-size: 14px;
+            color: #999;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            a, button {
+                width: 100%;
+            }
+
+            .info-box {
+                text-align: center;
+            }
+
+            .info-box li::before {
+                display: none;
+            }
+        }
     </style>
 </head>
-
 <body>
     <div class="container">
-        <h1>🎉 Thank You!</h1>
-        <p>Your submission has been received. We appreciate your interest!</p>
+        <div class="checkmark"></div>
+        
+        <p class="subtitle">Success!</p>
+        <h1>Thank You for Your Request</h1>
+        
+        <p>We've received your demo request and appreciate your interest in our solutions.</p>
+        
+        <div class="info-box">
+            <h3>What Happens Next?</h3>
+            <ul>
+                <li>A dedicated specialist will review your request</li>
+                <li>You'll receive a confirmation email shortly</li>
+                <li>We'll schedule a personalized demo within 24-48 hours</li>
+                <li>Our team will contact you at the provided number/email</li>
+            </ul>
+        </div>
 
-        <a href="index.html" class="btn">Go Back Home</a>
+        <p>In the meantime, check out our <span class="highlight">resource center</span> or <span class="highlight">case studies</span> to learn more about how we help businesses like yours.</p>
+
+        <div class="button-group">
+            <a href="index.html" class="btn-primary">Back to Form</a>
+            <a href="tel:+1234567890" class="btn-secondary">Call Us Now</a>
+        </div>
+
+        <div class="footer">
+            <p><strong>Need help?</strong> Our support team is available 24/7</p>
+            <p>Email: support@company.com | Phone: +1 (234) 567-8900</p>
+            
+            <div class="social-links">
+                <a href="#" title="LinkedIn">in</a>
+                <a href="#" title="Twitter">𝕏</a>
+                <a href="#" title="Facebook">f</a>
+            </div>
+        </div>
+
+        <div class="timer">Redirecting to form in <span id="countdown">10</span> seconds...</div>
     </div>
+
+    <script>
+        let count = 10;
+        const countdownEl = document.getElementById('countdown');
+        
+        const timer = setInterval(() => {
+            count--;
+            countdownEl.textContent = count;
+            
+            if (count <= 0) {
+                clearInterval(timer);
+                // Uncomment the line below to auto-redirect after 10 seconds
+                // window.location.href = 'index.html';
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
